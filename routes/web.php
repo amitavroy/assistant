@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FetchMailController;
 use App\Http\Controllers\NewsletterController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -17,6 +18,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 
     Route::resource('newsletters', NewsletterController::class)->only(['index', 'show']);
+    Route::post('newsletters/fetch-mail', FetchMailController::class)->name('newsletters.fetch-mail');
 });
 
 require __DIR__.'/settings.php';

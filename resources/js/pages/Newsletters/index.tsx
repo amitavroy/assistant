@@ -1,5 +1,6 @@
 import { index } from '@/actions/App/Http/Controllers/NewsletterController';
 import Pagination from '@/components/pagination';
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -8,13 +9,14 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import AppLayout from '@/layouts/app-layout';
+import { fetchMail } from '@/routes/newsletters';
 import { NewslettersTable } from '@/tables/newsletters-table';
 import {
   type BreadcrumbItem,
   type Newsletter,
   type PaginatedData,
 } from '@/types';
-import { Head } from '@inertiajs/react';
+import { Head, router } from '@inertiajs/react';
 
 interface NewslettersIndexProps {
   newsletters: PaginatedData<Newsletter>;
@@ -43,10 +45,18 @@ function NewslettersEmptyState() {
 export default function NewslettersIndex({
   newsletters,
 }: NewslettersIndexProps) {
+  const handleFetchMail = () => {
+    router.post(fetchMail.url());
+  };
+
   return (
     <AppLayout breadcrumbs={breadcrumbs}>
       <Head title="Newsletters" />
       <div className="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">
+        <div className="flex items-center justify-between">
+          <h1 className="text-2xl font-semibold">Newsletters</h1>
+          <Button onClick={handleFetchMail}>Fetch new Mail</Button>
+        </div>
         {newsletters.data.length === 0 ? (
           <NewslettersEmptyState />
         ) : (

@@ -1,6 +1,17 @@
 import { InertiaLinkProps } from '@inertiajs/react';
 import { LucideIcon } from 'lucide-react';
 
+declare module '@inertiajs/react' {
+  interface FlashData {
+    notification?: {
+      type?: 'success' | 'error' | 'info' | 'warning';
+      message: string;
+      title?: string;
+      duration?: number;
+    };
+  }
+}
+
 export interface Auth {
   user: User;
 }
