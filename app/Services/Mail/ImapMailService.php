@@ -2,11 +2,15 @@
 
 namespace App\Services\Mail;
 
+use App\Data\NewsletterData;
 use DirectoryTree\ImapEngine\Laravel\Facades\Imap;
 use Illuminate\Support\Collection;
 
 class ImapMailService implements MailServiceInterface
 {
+    /**
+     * @return Collection<int, NewsletterData>
+     */
     public function getMessages(?string $folderName = null): Collection
     {
         $mailbox = Imap::mailbox('default');
@@ -23,13 +27,13 @@ class ImapMailService implements MailServiceInterface
             ->get();
 
         return $messages->map(function ($message) {
-            return [
-                'uid' => $message->uid(),
+            return NewsletterData::from([
+                'uid' => $message->messageId(),
                 'subject' => $message->subject(),
                 'from' => $message->from()?->email(),
                 'date' => $message->date(),
                 'content' => $message->text(),
-            ];
+            ]);
         });
     }
 }

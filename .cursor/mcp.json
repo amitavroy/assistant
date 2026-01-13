@@ -1,17 +1,8 @@
 {
-    "mcpServers": {
-        "laravel-boost": {
-            "command": "php",
-            "args": [
-                "artisan",
-                "boost:mcp"
-            ]
-        },
-        "context7": {
-      "url": "https://mcp.context7.com/mcp",
-      "headers": {
-        "CONTEXT7_API_KEY": "ctx7sk-7bd8f775-5b8b-4a3e-92e3-404542e8f57c"
-      }
+  "mcpServers": {
+    "laravel-boost": {
+      "command": "php",
+      "args": ["artisan", "boost:mcp"]
     }
-    }
+  }
 }
