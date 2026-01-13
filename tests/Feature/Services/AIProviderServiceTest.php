@@ -54,6 +54,6 @@ test('throws exception for unsupported provider', function () {
 
     $service = new AIProviderService;
 
-    expect(fn() => $service->getProvider())
+    expect(fn () => $service->getProvider())
         ->toThrow(\InvalidArgumentException::class, 'Unsupported AI provider: unsupported-provider');
 });

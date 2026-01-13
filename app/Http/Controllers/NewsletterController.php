@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Newsletter;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class NewsletterController extends Controller
 {
@@ -12,7 +13,13 @@ class NewsletterController extends Controller
      */
     public function index()
     {
-        //
+        $newsletters = Newsletter::query()
+            ->orderBy('date', 'desc')
+            ->paginate(15);
+
+        return Inertia::render('Newsletters/index', [
+            'newsletters' => $newsletters,
+        ]);
     }
 
     /**
@@ -28,7 +35,9 @@ class NewsletterController extends Controller
      */
     public function show(Newsletter $newsletter)
     {
-        //
+        return Inertia::render('Newsletters/show', [
+            'newsletter' => $newsletter,
+        ]);
     }
 
     /**
