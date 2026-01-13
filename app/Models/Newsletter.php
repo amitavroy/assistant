@@ -16,6 +16,7 @@ class Newsletter extends Model
      * @var list<string>
      */
     protected $fillable = [
+        'job_id',
         'uid',
         'subject',
         'from',

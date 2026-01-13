@@ -4,6 +4,8 @@ namespace App\Console\Commands;
 
 use App\Neuron\Workflow\NewsletterDigestWorkflow;
 use Illuminate\Console\Command;
+use Illuminate\Support\Str;
+use NeuronAI\Workflow\WorkflowState;
 
 class EmailDigest extends Command
 {
@@ -28,8 +30,14 @@ class EmailDigest extends Command
     {
         logger('EmailDigest');
 
-        $handler = NewsletterDigestWorkflow::make()
-            ->start();
+        $jobId = Str::uuid()->toString();
+        $state = new WorkflowState([
+            'job_id' => $jobId,
+        ]);
+
+        $handler = NewsletterDigestWorkflow::make(
+            state: $state
+        )->start();
 
         $handler->getResult();
 

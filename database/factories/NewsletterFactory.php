@@ -17,6 +17,7 @@ class NewsletterFactory extends Factory
     public function definition(): array
     {
         return [
+            'job_id' => fake()->uuid(),
             'uid' => fake()->unique()->uuid(),
             'subject' => fake()->sentence(),
             'from' => fake()->email(),

@@ -35,4 +35,17 @@ return [
         ],
     ],
 
+    'openai' => [
+        'key' => env('OPENAI_API_KEY', ''),
+        'chat_model' => env('OPENAI_CHAT_MODEL', 'gpt-4.1-nano'),
+        'embeddings_model' => env('OPENAI_EMBEDDINGS_MODEL', 'text-embedding-3-large'),
+    ],
+
+    'ollama' => [
+        'url' => env('OLLAMA_URL', 'http://localhost:11434/api'),
+        'model' => env('OLLAMA_MODEL', 'qwen3:4b'),
+    ],
+
+    'ai_provider' => env('SERVICE_PROVIDER', 'openai'),
+
 ];

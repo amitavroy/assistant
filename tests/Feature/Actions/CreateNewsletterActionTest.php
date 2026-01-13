@@ -16,17 +16,21 @@ test('creates a new newsletter when it does not exist', function () {
         summary: 'Test summary',
     );
 
-    $newsletter = $action->execute($newsletterData);
+    $jobId = 'test-job-id-123';
+    $newsletter = $action->execute($newsletterData, $jobId);
 
     expect($newsletter)->toBeInstanceOf(Newsletter::class);
     expect($newsletter->uid)->toBe('test-uid-123');
+    expect($newsletter->job_id)->toBe($jobId);
     expect($newsletter->subject)->toBe('Test Subject');
     expect($newsletter->from)->toBe('test@example.com');
     expect(Newsletter::where('uid', 'test-uid-123')->count())->toBe(1);
 });
 
 test('returns existing newsletter when called with same uid', function () {
+    $existingJobId = 'existing-job-id-123';
     $existingNewsletter = Newsletter::factory()->create([
+        'job_id' => $existingJobId,
         'uid' => 'existing-uid-123',
         'subject' => 'Original Subject',
         'from' => 'original@example.com',
@@ -46,11 +50,13 @@ test('returns existing newsletter when called with same uid', function () {
         summary: 'Different summary',
     );
 
-    $result = $action->execute($newsletterData);
+    $newJobId = 'new-job-id-456';
+    $result = $action->execute($newsletterData, $newJobId);
 
     expect($result->id)->toBe($existingNewsletter->id);
     expect($result->uid)->toBe('existing-uid-123');
     expect($result->subject)->toBe('Original Subject');
+    expect($result->job_id)->toBe($existingJobId);
     expect(Newsletter::where('uid', 'existing-uid-123')->count())->toBe(1);
 });
 
@@ -66,7 +72,9 @@ test('creates newsletter without summary when summary is null', function () {
         summary: null,
     );
 
-    $newsletter = $action->execute($newsletterData);
+    $jobId = 'test-job-id-no-summary';
+    $newsletter = $action->execute($newsletterData, $jobId);
 
     expect($newsletter->summary)->toBeNull();
+    expect($newsletter->job_id)->toBe($jobId);
 });

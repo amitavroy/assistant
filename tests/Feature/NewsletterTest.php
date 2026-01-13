@@ -68,10 +68,25 @@ test('newsletter has correct fillable attributes', function () {
 
     $fillable = $newsletter->getFillable();
 
+    expect($fillable)->toContain('job_id');
     expect($fillable)->toContain('uid');
     expect($fillable)->toContain('subject');
     expect($fillable)->toContain('from');
     expect($fillable)->toContain('date');
     expect($fillable)->toContain('content');
     expect($fillable)->toContain('summary');
+});
+
+test('newsletter can be created with job_id', function () {
+    $jobId = 'test-job-id-123';
+    $newsletter = Newsletter::factory()->create([
+        'job_id' => $jobId,
+        'uid' => 'test-uid-789',
+        'subject' => 'Test Subject',
+        'from' => 'test@example.com',
+        'date' => '2024-01-01 12:00:00',
+        'content' => 'Test content here',
+    ]);
+
+    expect($newsletter->job_id)->toBe($jobId);
 });

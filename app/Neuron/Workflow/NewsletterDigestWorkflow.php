@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Neuron\Workflow;
 
 use App\Neuron\Node\EmailDigestInitialNode;
+use App\Neuron\Node\SummariseEmailNode;
 use NeuronAI\Workflow\Node;
 use NeuronAI\Workflow\Workflow;
 
@@ -19,6 +20,7 @@ class NewsletterDigestWorkflow extends Workflow
     {
         return [
             new EmailDigestInitialNode,
+            new SummariseEmailNode,
         ];
     }
 }

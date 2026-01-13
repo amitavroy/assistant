@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('newsletters', function (Blueprint $table) {
             $table->id();
+            $table->string('job_id');
             $table->string('uid')->unique();
             $table->string('subject');
             $table->string('from');
