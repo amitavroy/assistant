@@ -1,6 +1,5 @@
 <?php
 
-use App\Services\Mail\MailServiceInterface;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;

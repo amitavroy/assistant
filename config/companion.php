@@ -15,4 +15,3 @@ return [
     'default_folder' => env('COMPANION_DEFAULT_FOLDER', 'Newsletter'),
 
 ];
-
