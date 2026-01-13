@@ -11,13 +11,15 @@ class CreateNewsletterAction
 {
     public function execute(NewsletterData $newsletter): Newsletter
     {
-        return Newsletter::create([
-            'uid' => $newsletter->uid,
-            'subject' => $newsletter->subject,
-            'from' => $newsletter->from,
-            'date' => $newsletter->date,
-            'content' => $newsletter->content,
-            'summary' => $newsletter->summary,
-        ]);
+        return Newsletter::firstOrCreate(
+            ['uid' => $newsletter->uid],
+            [
+                'subject' => $newsletter->subject,
+                'from' => $newsletter->from,
+                'date' => $newsletter->date,
+                'content' => $newsletter->content,
+                'summary' => $newsletter->summary,
+            ]
+        );
     }
 }
