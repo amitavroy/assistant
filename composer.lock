@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1f1ed5304f04141851b135806c3bc0f6",
+    "content-hash": "4aa671d913401ffcbc2d4a9d490b6ac5",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1334,16 +1334,16 @@
         },
         {
             "name": "inertiajs/inertia-laravel",
-            "version": "v2.0.18",
+            "version": "v2.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/inertiajs/inertia-laravel.git",
-                "reference": "90bac97fe77ca64384146bf0ea365e4f1f00dff9"
+                "reference": "732a991342a0f82653a935440e2f3b9be1eb6f6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/90bac97fe77ca64384146bf0ea365e4f1f00dff9",
-                "reference": "90bac97fe77ca64384146bf0ea365e4f1f00dff9",
+                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/732a991342a0f82653a935440e2f3b9be1eb6f6e",
+                "reference": "732a991342a0f82653a935440e2f3b9be1eb6f6e",
                 "shasum": ""
             },
             "require": {
@@ -1398,9 +1398,9 @@
             ],
             "support": {
                 "issues": "https://github.com/inertiajs/inertia-laravel/issues",
-                "source": "https://github.com/inertiajs/inertia-laravel/tree/v2.0.18"
+                "source": "https://github.com/inertiajs/inertia-laravel/tree/v2.0.19"
             },
-            "time": "2025-12-31T16:10:57+00:00"
+            "time": "2026-01-13T15:29:20+00:00"
         },
         {
             "name": "inspector-apm/inspector-php",
@@ -2921,16 +2921,16 @@
         },
         {
             "name": "neuron-core/neuron-ai",
-            "version": "2.10.3",
+            "version": "2.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neuron-core/neuron-ai.git",
-                "reference": "4ddab02d1ce3dc763083f20d0aaf788ca8b15b59"
+                "reference": "680f44d9a07b03b7e50fea9de636e087c1e35e47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neuron-core/neuron-ai/zipball/4ddab02d1ce3dc763083f20d0aaf788ca8b15b59",
-                "reference": "4ddab02d1ce3dc763083f20d0aaf788ca8b15b59",
+                "url": "https://api.github.com/repos/neuron-core/neuron-ai/zipball/680f44d9a07b03b7e50fea9de636e087c1e35e47",
+                "reference": "680f44d9a07b03b7e50fea9de636e087c1e35e47",
                 "shasum": ""
             },
             "require": {
@@ -2985,7 +2985,7 @@
             "description": "The PHP Agentic Framework.",
             "support": {
                 "issues": "https://github.com/neuron-core/neuron-ai/issues",
-                "source": "https://github.com/neuron-core/neuron-ai/tree/2.10.3"
+                "source": "https://github.com/neuron-core/neuron-ai/tree/2.11.0"
             },
             "funding": [
                 {
@@ -2993,20 +2993,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-13T10:16:46+00:00"
+            "time": "2026-01-14T17:27:46+00:00"
         },
         {
             "name": "neuron-core/neuron-laravel",
-            "version": "0.3.3",
+            "version": "0.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neuron-core/neuron-laravel.git",
-                "reference": "2b3748065a795737c8b3d45db332407061a3c16b"
+                "reference": "228b31b82c83e05d522923a9af0215580e31542b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neuron-core/neuron-laravel/zipball/2b3748065a795737c8b3d45db332407061a3c16b",
-                "reference": "2b3748065a795737c8b3d45db332407061a3c16b",
+                "url": "https://api.github.com/repos/neuron-core/neuron-laravel/zipball/228b31b82c83e05d522923a9af0215580e31542b",
+                "reference": "228b31b82c83e05d522923a9af0215580e31542b",
                 "shasum": ""
             },
             "require": {
@@ -3055,7 +3055,7 @@
                     "email": "valerio@inspector.dev"
                 }
             ],
-            "description": "Utility Package for using Neuron AI in Laravel applications.",
+            "description": "Official Neuron AI Laravel SDK.",
             "keywords": [
                 "ai",
                 "ai-agent",
@@ -3064,9 +3064,9 @@
             ],
             "support": {
                 "issues": "https://github.com/neuron-core/neuron-laravel/issues",
-                "source": "https://github.com/neuron-core/neuron-laravel/tree/0.3.3"
+                "source": "https://github.com/neuron-core/neuron-laravel/tree/0.3.4"
             },
-            "time": "2026-01-12T17:05:47+00:00"
+            "time": "2026-01-13T17:11:55+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -8201,16 +8201,16 @@
         },
         {
             "name": "laravel/boost",
-            "version": "v1.8.9",
+            "version": "v1.8.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/boost.git",
-                "reference": "1f2c2d41b5216618170fb6730ec13bf894c5bffd"
+                "reference": "aad8b2a423b0a886c2ce7ee92abbfde69992ff32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/boost/zipball/1f2c2d41b5216618170fb6730ec13bf894c5bffd",
-                "reference": "1f2c2d41b5216618170fb6730ec13bf894c5bffd",
+                "url": "https://api.github.com/repos/laravel/boost/zipball/aad8b2a423b0a886c2ce7ee92abbfde69992ff32",
+                "reference": "aad8b2a423b0a886c2ce7ee92abbfde69992ff32",
                 "shasum": ""
             },
             "require": {
@@ -8263,7 +8263,7 @@
                 "issues": "https://github.com/laravel/boost/issues",
                 "source": "https://github.com/laravel/boost"
             },
-            "time": "2026-01-07T18:43:11+00:00"
+            "time": "2026-01-14T14:51:16+00:00"
         },
         {
             "name": "laravel/mcp",
