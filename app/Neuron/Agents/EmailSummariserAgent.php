@@ -31,12 +31,17 @@ class EmailSummariserAgent extends Agent
                 'Identify and SKIP: subscription offers, discount promotions, testimonials, calls-to-action, signup links, and marketing language.',
                 'Identify the CORE content: any educational material, technical explanations, lists of concepts, tutorials, or genuinely informative sections.',
                 'Extract the key points from the core content only.',
+                'Structure the content into three parts: 1. Key Points, 2. Summary, 3. Actionable Insights',
             ],
             output: [
-                'A summary containing ONLY the substantive content.',
+                'The summary should have three parts: 1. Key Points, 2. Summary, 3. Actionable Insights',
+                'The Key Points should be a list of the most important points from the email.',
+                'The Summary should be a concise summary of the email.',
+                'The Actionable Insights should be a list that one should deep dive into.',
                 'If the email contains a list of concepts or definitions, preserve them in the summary.',
                 'Ignore all promotional sections entirely - do not mention discounts, subscriptions, or offers.',
                 'Output in plain text without markdown or emojis.',
+                'If the email has links to the original article, include them at the last as reference links.',
             ],
         );
     }
