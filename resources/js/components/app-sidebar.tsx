@@ -1,4 +1,5 @@
-import { index } from '@/actions/App/Http/Controllers/NewsletterController';
+import { index as newslettersIndex } from '@/actions/App/Http/Controllers/NewsletterController';
+import { index as tasksIndex } from '@/actions/App/Http/Controllers/TaskController';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
@@ -14,7 +15,7 @@ import {
 import { dashboard } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { BookOpen, Folder, LayoutGrid, Mail } from 'lucide-react';
+import { BookOpen, CheckSquare, Folder, LayoutGrid, Mail } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -24,8 +25,13 @@ const mainNavItems: NavItem[] = [
     icon: LayoutGrid,
   },
   {
+    title: 'Tasks',
+    href: tasksIndex(),
+    icon: CheckSquare,
+  },
+  {
     title: 'Newsletters',
-    href: index(),
+    href: newslettersIndex(),
     icon: Mail,
   },
 ];

@@ -64,6 +64,18 @@ export interface Newsletter {
   updated_at: string;
 }
 
+export interface Task {
+  id: number;
+  user_id: number;
+  description: string;
+  is_completed: boolean;
+  due_date: string | null;
+  comments: string[];
+  next_reminder: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
 export interface PaginatedData<T> {
   data: T[];
   current_page: number;
