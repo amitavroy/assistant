@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\GenerateNewsletterPdfAction;
+use App\Http\Requests\GenerateNewsletterPdfRequest;
 use App\Models\Newsletter;
+use App\PdfType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Context;
 use Inertia\Inertia;
 
 class NewsletterController extends Controller
@@ -54,5 +58,18 @@ class NewsletterController extends Controller
     public function destroy(Newsletter $newsletter)
     {
         //
+    }
+
+    /**
+     * Generate PDF for newsletter.
+     */
+    public function generatePdf(GenerateNewsletterPdfRequest $request, GenerateNewsletterPdfAction $action)
+    {
+        $newsletter = Context::get('newsletter');
+        $pdfType = PdfType::from($request->validated()['pdf_type']);
+
+        $result = $action->execute($newsletter, $pdfType);
+
+        return response()->download($result['path'], $result['filename'])->deleteFileAfterSend(true);
     }
 }

@@ -248,7 +248,7 @@ Summaries are automatically generated when newsletters are fetched. The applicat
 3. Extracts the core educational material
 4. Structures the information into the three-part format
 
-Summaries are stored with each newsletter and can be viewed on the newsletter detail page.
+Summaries are stored with each newsletter and can be viewed on the newsletter detail page. You can also download summaries as PDF files for offline reading and sharing.
 
 #### Generate Learning Path
 
@@ -278,7 +278,7 @@ The generated learning path follows a "First Principles" approach:
 - **Practical Application**: Includes exercises and validation steps
 - **System Context**: Shows how concepts fit into larger architectures
 
-This feature is particularly useful for technical newsletters, system design content, and educational materials that benefit from structured learning approaches.
+This feature is particularly useful for technical newsletters, system design content, and educational materials that benefit from structured learning approaches. Learning paths can be downloaded as PDF files for offline study and reference.
 
 ### Task Management
 

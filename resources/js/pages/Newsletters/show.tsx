@@ -1,9 +1,11 @@
 import {
+  generatePdf,
   index,
   show,
 } from '@/actions/App/Http/Controllers/NewsletterController';
 import { FormattedDate } from '@/components/formatted-date';
 import { MarkdownContent } from '@/components/markdown-content';
+import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -11,7 +13,7 @@ import CreateLearningPathForm from '@/forms/create-learning-path-form';
 import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem, type Newsletter } from '@/types';
 import { Head, Link } from '@inertiajs/react';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Download } from 'lucide-react';
 import { useState } from 'react';
 
 interface NewsletterShowProps {
@@ -20,6 +22,7 @@ interface NewsletterShowProps {
 
 export default function NewsletterShow({ newsletter }: NewsletterShowProps) {
   const [activeTab, setActiveTab] = useState('summary');
+  const [downloading, setDownloading] = useState<string | null>(null);
 
   const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -31,6 +34,24 @@ export default function NewsletterShow({ newsletter }: NewsletterShowProps) {
       href: show(newsletter.id).url,
     },
   ];
+
+  const handlePdfDownload = (pdfType: 'summary' | 'learning_path') => {
+    setDownloading(pdfType);
+
+    // Use GET request for file download - no CSRF token needed
+    const url = generatePdf.url({
+      query: {
+        newsletter_id: newsletter.id,
+        pdf_type: pdfType,
+      },
+    });
+    window.location.href = url;
+
+    // Reset downloading state after a short delay
+    setTimeout(() => {
+      setDownloading(null);
+    }, 1000);
+  };
 
   return (
     <AppLayout breadcrumbs={breadcrumbs}>
@@ -69,7 +90,21 @@ export default function NewsletterShow({ newsletter }: NewsletterShowProps) {
               </TabsList>
               <TabsContent value="summary" className="mt-4">
                 {newsletter.summary ? (
-                  <MarkdownContent content={newsletter.summary} />
+                  <div className="space-y-4">
+                    <div className="flex justify-end">
+                      <Button
+                        onClick={() => handlePdfDownload('summary')}
+                        disabled={downloading === 'summary'}
+                        variant="outline"
+                      >
+                        <Download className="mr-2 h-4 w-4" />
+                        {downloading === 'summary'
+                          ? 'Generating...'
+                          : 'Get PDF'}
+                      </Button>
+                    </div>
+                    <MarkdownContent content={newsletter.summary} />
+                  </div>
                 ) : (
                   <div className="py-8 text-center text-muted-foreground">
                     No summary available for this newsletter.
@@ -78,7 +113,21 @@ export default function NewsletterShow({ newsletter }: NewsletterShowProps) {
               </TabsContent>
               <TabsContent value="learning-path" className="mt-4">
                 {newsletter.learning_path ? (
-                  <MarkdownContent content={newsletter.learning_path} />
+                  <div className="space-y-4">
+                    <div className="flex justify-end">
+                      <Button
+                        onClick={() => handlePdfDownload('learning_path')}
+                        disabled={downloading === 'learning_path'}
+                        variant="outline"
+                      >
+                        <Download className="mr-2 h-4 w-4" />
+                        {downloading === 'learning_path'
+                          ? 'Generating...'
+                          : 'Get PDF'}
+                      </Button>
+                    </div>
+                    <MarkdownContent content={newsletter.learning_path} />
+                  </div>
                 ) : (
                   <div className="py-8 text-center text-muted-foreground">
                     <p className="mb-4">

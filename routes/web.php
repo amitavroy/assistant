@@ -21,6 +21,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('newsletters', NewsletterController::class)->only(['index', 'show']);
     Route::post('newsletters/fetch-mail', FetchMailController::class)->name('newsletters.fetch-mail');
+    Route::get('generate-newsletter-pdf', [NewsletterController::class, 'generatePdf'])->name('generate-newsletter-pdf');
     Route::post('create-learning-path', NewsletterLearningPathController::class)->name('create-learning-path');
 
     Route::resource('tasks', TaskController::class);
