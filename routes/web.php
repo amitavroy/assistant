@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FetchMailController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\NewsletterLearningPathController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -20,6 +21,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('newsletters', NewsletterController::class)->only(['index', 'show']);
     Route::post('newsletters/fetch-mail', FetchMailController::class)->name('newsletters.fetch-mail');
+    Route::post('create-learning-path', NewsletterLearningPathController::class)->name('create-learning-path');
 
     Route::resource('tasks', TaskController::class);
     Route::post('tasks/{task}/comments', [TaskController::class, 'addComment'])->name('tasks.comments.store');

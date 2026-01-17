@@ -23,5 +23,6 @@ class Newsletter extends Model
         'date',
         'content',
         'summary',
+        'learning_path',
     ];
 }

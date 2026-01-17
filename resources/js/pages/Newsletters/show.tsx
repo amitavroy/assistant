@@ -7,6 +7,7 @@ import { MarkdownContent } from '@/components/markdown-content';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import CreateLearningPathForm from '@/forms/create-learning-path-form';
 import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem, type Newsletter } from '@/types';
 import { Head, Link } from '@inertiajs/react';
@@ -63,6 +64,7 @@ export default function NewsletterShow({ newsletter }: NewsletterShowProps) {
             <Tabs value={activeTab} onValueChange={setActiveTab}>
               <TabsList>
                 <TabsTrigger value="summary">Summary</TabsTrigger>
+                <TabsTrigger value="learning-path">Learning Path</TabsTrigger>
                 <TabsTrigger value="content">Content</TabsTrigger>
               </TabsList>
               <TabsContent value="summary" className="mt-4">
@@ -71,6 +73,18 @@ export default function NewsletterShow({ newsletter }: NewsletterShowProps) {
                 ) : (
                   <div className="py-8 text-center text-muted-foreground">
                     No summary available for this newsletter.
+                  </div>
+                )}
+              </TabsContent>
+              <TabsContent value="learning-path" className="mt-4">
+                {newsletter.learning_path ? (
+                  <MarkdownContent content={newsletter.learning_path} />
+                ) : (
+                  <div className="py-8 text-center text-muted-foreground">
+                    <p className="mb-4">
+                      No learning path available for this newsletter.
+                    </p>
+                    <CreateLearningPathForm newsletterId={newsletter.id} />
                   </div>
                 )}
               </TabsContent>

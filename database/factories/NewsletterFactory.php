@@ -24,6 +24,7 @@ class NewsletterFactory extends Factory
             'date' => fake()->dateTime()->format('Y-m-d H:i:s'),
             'content' => fake()->paragraphs(3, true),
             'summary' => fake()->optional()->sentence(),
+            'learning_path' => fake()->optional()->paragraphs(5, true),
         ];
     }
 }

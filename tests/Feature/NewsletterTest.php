@@ -33,6 +33,33 @@ test('newsletter can be created without summary', function () {
     expect($newsletter->summary)->toBeNull();
 });
 
+test('newsletter can be created without learning_path', function () {
+    $newsletter = Newsletter::factory()->create([
+        'uid' => 'test-uid-789',
+        'subject' => 'Test Subject',
+        'from' => 'test@example.com',
+        'date' => '2024-01-01 12:00:00',
+        'content' => 'Test content here',
+        'learning_path' => null,
+    ]);
+
+    expect($newsletter->learning_path)->toBeNull();
+});
+
+test('newsletter can be created with learning_path', function () {
+    $learningPath = 'Step 1: Learn basics\nStep 2: Practice\nStep 3: Master';
+    $newsletter = Newsletter::factory()->create([
+        'uid' => 'test-uid-101',
+        'subject' => 'Test Subject',
+        'from' => 'test@example.com',
+        'date' => '2024-01-01 12:00:00',
+        'content' => 'Test content here',
+        'learning_path' => $learningPath,
+    ]);
+
+    expect($newsletter->learning_path)->toBe($learningPath);
+});
+
 test('newsletter factory creates valid newsletter', function () {
     $newsletter = Newsletter::factory()->create();
 
@@ -75,6 +102,7 @@ test('newsletter has correct fillable attributes', function () {
     expect($fillable)->toContain('date');
     expect($fillable)->toContain('content');
     expect($fillable)->toContain('summary');
+    expect($fillable)->toContain('learning_path');
 });
 
 test('newsletter can be created with job_id', function () {
