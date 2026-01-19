@@ -1,5 +1,7 @@
 # Assistant
 
+[![tests](https://github.com/amitavroy/assistant/actions/workflows/tests.yml/badge.svg)](https://github.com/amitavroy/assistant/actions/workflows/tests.yml)
+
 A Laravel-based personal assistant application built with React and Inertia.js. This application helps you manage tasks and process newsletters from your Gmail account using AI-powered summarization and learning path generation.
 
 ## What is this Application?
